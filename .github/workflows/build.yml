@@ -1,0 +1,30 @@
+name: Build Pack
+
+on:
+    push: 
+        paths: 
+            - "x256/**"
+
+# Welcome to my workflow
+jobs:
+    build-pack:
+        name: Build Pack
+        runs-on: ubuntu-22.04
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+            
+            - name: Install Dependencies
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y jq zip
+            
+            - name: Build Pack ZIP
+              run: bash scripts/generate-pack.sh
+            
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: neoduke
+                path: neoduke.zip
