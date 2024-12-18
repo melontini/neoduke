@@ -1,6 +1,7 @@
 name: Build Pack
 
 on:
+    workflow_dispatch: 
     push: 
         paths: 
             - "x256/**"
@@ -18,7 +19,7 @@ jobs:
             - name: Install Dependencies
               run: |
                 sudo apt-get update
-                sudo apt-get install -y jq zip
+                sudo apt-get install -y jq
             
             - name: Build Pack ZIP
               run: bash scripts/generate-pack.sh
@@ -27,4 +28,4 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: neoduke
-                path: neoduke.zip
+                path: output/

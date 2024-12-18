@@ -37,7 +37,3 @@ done
 mv "$EMOJI_ARRAY" "output/meta.json"
 mv "$FILES_OBJECT" "output/pack.json"
 cp "LICENSE.txt" "output/LICENSE.txt"
-
-cd output
-zip -r "../neoduke.zip" ./*
-cd ..
