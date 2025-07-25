@@ -22,7 +22,7 @@ for FILE in x256/*.png; do
       fileName: $fileName,
       emoji: {
         name: $name,
-        category: neoduke,
+        category: "neoduke",
         license: "CC BY-NC-SA 4.0",
         aliases: []
       }
